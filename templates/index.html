@@ -1,3 +1,108 @@
-<h1>
-    Hello Flask
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish House Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #predictionResult {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .predictionBox {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction Form</h2>
+        <form id="predictionForm" action="/predict" method="POST">
+            <label for="MedInc">MedInc:</label>
+            <input type="text" id="MedInc" name="MedInc">
+            <label for="HouseAge">HouseAge:</label>
+            <input type="text" id="HouseAge" name="HouseAge">
+            <label for="AveRooms">AveRooms:</label>
+            <input type="text" id="AveRooms" name="AveRooms">
+            <label for="AveBedrms">AveBedrms:</label>
+            <input type="text" id="AveBedrms" name="AveBedrms">
+            <label for="Population">Population:</label>
+            <input type="text" id="Population" name="Population">
+            <label for="AveOccup">AveOccup:</label>
+            <input type="text" id="AveOccup" name="AveOccup">
+            <label for="Latitude">Latitude:</label>
+            <input type="text" id="Latitude" name="Latitude">
+            <label for="Longitude">Longitude:</label>
+            <input type="text" id="Longitude" name="Longitude">
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Display prediction result -->
+        <div id="predictionResult">
+            {% if prediction_text %}
+                <div class="predictionBox">
+                    <p>House Price Prediction is {{ prediction_text }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

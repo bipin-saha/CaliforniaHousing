@@ -2,28 +2,33 @@ import pickle
 import os
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from flask import Flask, request, app, jsonify, url_for, render_template
 
 app = Flask(__name__)
 model = pickle.load(open('uncompressed_forest.pkl', 'rb'))
-scaler = StandardScaler()
+scalar=pickle.load(open('scaling.pkl','rb'))
 
 
 @app.route('/')
 def home():
+
     return render_template("index.html")
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict_api', methods=['POST'])
 def predict_api():
     data = request.json['data']
-    print(data)
-    new_data = scaler.fit_transform(np.array(list(data.values())).reshape(1, -1))
-    print(new_data)
+    new_data = scalar.transform(np.array(list(data.values())).reshape(1,-1))
     output = model.predict(new_data)
-    print(output[0])
     return jsonify(output[0])
 
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.form.to_dict(flat=False)
+    data = {key: float(value[0]) for key, value in data.items()}
+    new_data = scalar.transform(np.array(list(data.values())).reshape(1,-1))
+    print(new_data)
+    output = model.predict(new_data)[0]
+    return render_template("index.html", prediction_text=output)
 
 
 if __name__ == "__main__":
