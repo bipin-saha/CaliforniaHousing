@@ -15,16 +15,14 @@ jobs:
           fetch-depth: 0
 
       - name: Install Git LFS
-        run: git lfs install
+        run: |
+        git lfs install
+        git lfs track "compressed_forest.pkl.gz"
 
       - name: Add remote 
         env:
           HF: ${{ secrets.HF }}
-        run: git remote add space https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse
-
-      # Track large files with Git LFS
-      - name: Track large files with Git LFS
-        run: git lfs track "compressed_forest.pkl.gz"
+        run: git remote add space https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse        
 
       - name: Push to hub
         env:
