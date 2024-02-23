@@ -18,6 +18,8 @@ jobs:
         run: |
           git lfs install
           git lfs track "compressed_forest.pkl.gz"
+          git add .gitattributes
+          git commit -m "Track large files with Git LFS"
 
       - name: Add remote 
         env:
@@ -28,5 +30,4 @@ jobs:
         env:
           HF: ${{ secrets.HF }}
         run: |
-          git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main || \
-          (git reset --hard HEAD~1 && git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main)
+          git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main
