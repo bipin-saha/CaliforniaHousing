@@ -22,7 +22,7 @@ jobs:
 
       # Enable LFS for large files using huggingface-cli
       - name: Enable Git LFS for large files
-        run: huggingface-cli lfs-enable-largefiles .
+        run: huggingface-cli lfs-enable-largefiles
 
       - name: Add remote 
         env:
