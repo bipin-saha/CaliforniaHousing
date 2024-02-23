@@ -27,4 +27,6 @@ jobs:
       - name: Push to hub
         env:
           HF: ${{ secrets.HF }}
-        run: git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main
+        run: |
+          git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main || \
+          (git reset --hard HEAD~1 && git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main)
