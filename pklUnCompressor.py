@@ -11,7 +11,7 @@ def decompress_pickle(input_compressed_file, output_file):
         pickle.dump(data, f)
 
 # Example usage
-input_compressed_pickle_file = 'compressed_forest.pkl.gz'
-output_pickle_file = 'uncompressed_forest.pkl'
+#input_compressed_pickle_file = 'compressed_forest.pkl.gz'
+#output_pickle_file = 'uncompressed_forest.pkl'
 
-decompress_pickle(input_compressed_pickle_file, output_pickle_file)
+#decompress_pickle(input_compressed_pickle_file, output_pickle_file)

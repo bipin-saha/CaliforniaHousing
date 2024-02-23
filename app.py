@@ -3,8 +3,14 @@ import os
 import numpy as np
 import pandas as pd
 from flask import Flask, request, app, jsonify, url_for, render_template
+from pklUnCompressor import decompress_pickle
 
 app = Flask(__name__)
+
+input_compressed_pickle_file = 'compressed_forest.pkl.gz'
+output_pickle_file = 'uncompressed_forest.pkl'
+decompress_pickle(input_compressed_pickle_file, output_pickle_file)
+
 model = pickle.load(open('uncompressed_forest.pkl', 'rb'))
 scalar=pickle.load(open('scaling.pkl','rb'))
 
