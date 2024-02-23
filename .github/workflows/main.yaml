@@ -16,8 +16,8 @@ jobs:
 
       - name: Install Git LFS
         run: |
-        git lfs install
-        git lfs track "compressed_forest.pkl.gz"
+          git lfs install
+          git lfs track "compressed_forest.pkl.gz"
 
       - name: Add remote 
         env:
