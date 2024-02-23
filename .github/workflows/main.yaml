@@ -18,7 +18,6 @@ jobs:
         run: |
           git lfs install
           git lfs track "compressed_forest.pkl.gz"
-          git add .gitattributes
           git commit -m "Track large files with Git LFS"
 
       - name: Add remote 
