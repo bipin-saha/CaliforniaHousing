@@ -14,15 +14,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Install Git LFS
       - name: Install Git LFS
-        run: |
-          sudo apt-get install -y git-lfs
-          git lfs install
-
-      # Enable LFS for large files using huggingface-cli
-      - name: Enable Git LFS for large files
-        run: huggingface-cli lfs-enable-largefiles
+        run: git lfs install
 
       - name: Add remote 
         env:
@@ -31,7 +24,7 @@ jobs:
 
       # Track large files with Git LFS
       - name: Track large files with Git LFS
-        run: git lfs track "*.gz"   # Replace "*.your_extension" with the file extension(s) you want to track
+        run: git lfs track "compressed_forest.pkl.gz"
 
       - name: Push to hub
         env:
