@@ -77,21 +77,21 @@
         <h2>House Price Prediction Form</h2>
         <form id="predictionForm" action="/predict" method="POST">
             <label for="MedInc">MedInc:</label>
-            <input type="text" id="MedInc" name="MedInc">
+            <input type="text" id="MedInc" name="MedInc" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="HouseAge">HouseAge:</label>
-            <input type="text" id="HouseAge" name="HouseAge">
+            <input type="text" id="HouseAge" name="HouseAge" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="AveRooms">AveRooms:</label>
-            <input type="text" id="AveRooms" name="AveRooms">
+            <input type="text" id="AveRooms" name="AveRooms" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="AveBedrms">AveBedrms:</label>
-            <input type="text" id="AveBedrms" name="AveBedrms">
+            <input type="text" id="AveBedrms" name="AveBedrms" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="Population">Population:</label>
-            <input type="text" id="Population" name="Population">
+            <input type="text" id="Population" name="Population" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="AveOccup">AveOccup:</label>
-            <input type="text" id="AveOccup" name="AveOccup">
+            <input type="text" id="AveOccup" name="AveOccup" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="Latitude">Latitude:</label>
-            <input type="text" id="Latitude" name="Latitude">
+            <input type="text" id="Latitude" name="Latitude" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <label for="Longitude">Longitude:</label>
-            <input type="text" id="Longitude" name="Longitude">
+            <input type="text" id="Longitude" name="Longitude" pattern="-?\d*\.?\d+" title="Please enter numbers only">
             <input type="submit" value="Submit">
         </form>
 
@@ -104,5 +104,14 @@
             {% endif %}
         </div>
     </div>
+    <script>
+        // JavaScript validation to allow only numbers in input fields
+        var numberInputs = document.querySelectorAll('input[type="text"]');
+        numberInputs.forEach(function(input) {
+            input.addEventListener('input', function() {
+                this.value = this.value.replace(/[^\d.-]/g, ''); // Only allow digits, dot and minus sign
+            });
+        });
+    </script>
 </body>
 </html>
