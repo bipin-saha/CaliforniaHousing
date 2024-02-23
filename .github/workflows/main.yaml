@@ -33,7 +33,6 @@ jobs:
         env:
           HF: ${{ secrets.HF }}
         run: |
-          git add .gitattributes
           git add .   # Add all changes including LFS-tracked files
           git commit -m "Enable Git LFS"
           git push --force https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse main
