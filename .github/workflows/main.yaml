@@ -31,7 +31,7 @@ jobs:
 
       # Track large files with Git LFS
       - name: Track large files with Git LFS
-        run: git lfs track "*.your_extension"   # Replace "*.your_extension" with the file extension(s) you want to track
+        run: git lfs track "*.gz"   # Replace "*.your_extension" with the file extension(s) you want to track
 
       - name: Push to hub
         env:
