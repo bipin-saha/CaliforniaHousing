@@ -1,4 +1,4 @@
-FROM 3.11.8-slim-bullseye
+FROM 3.11-bullseye
 COPY . /code
 WORKDIR /code
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
