@@ -10,13 +10,16 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Add remote 
         env:
           HF: ${{ secrets.HF }}
-        run: git remote add space https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse
+        run: |
+          git filter-branch --tree-filter 'rm -f compressed_forest.pkl.gz' HEAD
+          git remote add space https://bipinsaha:$HF@huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse
       - name: Push to hub
         env:
           HF: ${{ secrets.HF }}
