@@ -5,8 +5,11 @@ ADD https://github.com/bipin-saha/Visual-Questing-Answering/blob/main/compressed
 
 WORKDIR /code
 
+# Change permissions explicitly
 RUN chmod u+rw compressed_forest.pkl.gz \
-    && pip install -r requirements.txt
+    && ls -l  # Print out directory listing to debug permission settings
+
+RUN pip install -r requirements.txt
 
 EXPOSE 7860
 
