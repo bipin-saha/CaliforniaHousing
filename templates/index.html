@@ -17,7 +17,7 @@
         }
 
         .container {
-            width: 400px;
+            width: 600px;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -31,8 +31,9 @@
         }
 
         form {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
         }
 
         label {
@@ -41,9 +42,9 @@
 
         input[type="text"] {
             padding: 8px;
-            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            width: 100%;
         }
 
         input[type="submit"] {
@@ -53,6 +54,8 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            grid-column: span 2; /* Spanning both columns */
         }
 
         input[type="submit"]:hover {
