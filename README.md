@@ -6,7 +6,7 @@ colorTo: gray
 sdk: docker
 app_port: 7860
 ---
-Check out the configuration reference at [https://huggingface.co/docs/hub/spaces-config-reference](https://huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse)
+Check out the configuration reference at [https://huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse](https://huggingface.co/spaces/bipinsaha/Docker_ClaiforniaHouse)
 
 This repository contains code for a web application built with FastAPI that predicts housing prices in California based on various features. The application is deployed using Hugging Face with a CI/CD pipeline set up using GitHub Actions.
 
