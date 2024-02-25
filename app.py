@@ -9,7 +9,7 @@ from pklUnCompressor import decompress_pickle
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import ExtraTreesRegressor
 
-califo = fetch_california_housing()
+califo = fetch_california_housing(data_home="./")
 
 dataset = pd.DataFrame(califo.data, columns=califo.feature_names)
 
